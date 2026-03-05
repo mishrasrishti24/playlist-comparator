@@ -9,8 +9,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Results from "./pages/Results";
 import History from "./pages/History"; // Added History page
-import Login from "./pages/Login";
-import Signup from "./pages/SignUp";
+import Login from "./pages/Login.jsx";
+import Signup from "./pages/SignUp.jsx";
 
 function App() {
   return (
