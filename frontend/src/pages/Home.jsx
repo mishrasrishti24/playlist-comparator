@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import bg from "../assets/bg.jpg";
 
+const API = import.meta.env.VITE_API_URL;
+
 export default function Home() {
   const navigate = useNavigate();
   const [playlistA, setPlaylistA] = useState("");
@@ -23,13 +25,10 @@ export default function Home() {
       setError("");
       setLoading(true);
 
-      const res = await axios.post(
-        "http://localhost:5000/api/compare",
-        {
-          playlistA: trimmedA,
-          playlistB: trimmedB,
-        }
-      );
+      const res = await axios.post(`${API}/api/compare`, {
+        playlistA: trimmedA,
+        playlistB: trimmedB,
+      });
 
       navigate("/results", { state: res.data });
     } catch (err) {
